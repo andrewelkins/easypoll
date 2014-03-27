@@ -1,0 +1,23 @@
+{
+    "name": "wwallace/poll",
+    "description": "A Laravel Package for creating Polls",
+    "authors": [
+        {
+            "name": "William Wallace",
+            "email": "me@iamwilliamwallace.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.7",
+        "illuminate/support": "4.0.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Wwallace\\Poll\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
