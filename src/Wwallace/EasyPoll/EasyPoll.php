@@ -8,19 +8,6 @@ use Config;
  */
 class EasyPoll {
 
-	public $app;
-
-	public function __construct()
-	{
-
-		$this->app = app();
-
-	}
-
-	public function getAllPolls() {
-		return \Poll::get();
-	}
-
 	/**
 	 * @param $pollAttributes
 	 * @param $options

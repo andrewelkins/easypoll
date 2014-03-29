@@ -9,13 +9,10 @@
     ],
     "require": {
         "php": ">=5.3.7",
-        "illuminate/support": "~4.1",
-        "felixkiss/uniquewith-validator": "1.0.2"
+        "illuminate/support": "~4.1"
     },
     "require-dev": {
-        "illuminate/database": "4.x",
-        "mockery/mockery": "0.7.2",
-        "zizaco/factory-muff": "dev-master"
+        "illuminate/database": "4.x"
     },
     "autoload": {
         "classmap": [
