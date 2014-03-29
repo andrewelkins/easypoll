@@ -1,11 +1,9 @@
-<?php namespace Wwallace\Poll\ServiceProviders;
+<?php namespace Wwallace\EasyPoll\ServiceProviders;
 
 use Illuminate\Support\ServiceProvider;
-use Wwallace\Poll\Poll;
-use Wwallace\Poll\Option;
-use Wwallace\Poll\Vote;
+use Wwallace\EasyPoll\EasyPoll;
 
-class PollServiceProvider extends ServiceProvider {
+class EasyPollServiceProvider extends ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.
@@ -21,11 +19,11 @@ class PollServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('wwallace/poll');
+		$this->package('wwallace/easypoll');
 		$this->app->booting(function()
 		{
 			$loader = \Illuminate\Foundation\AliasLoader::getInstance();
-			$loader->alias('Poll', 'Wwallace\Poll\Facades\PollFacade');
+			$loader->alias('EasyPoll', 'Wwallace\EasyPoll\Facades\EasyPollFacade');
 		});
 	}
 
@@ -36,9 +34,9 @@ class PollServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app['poll'] = $this->app->share(function($app)
+		$this->app['easypoll'] = $this->app->share(function($app)
 		{
-			return new Poll;
+			return new EasyPoll();
 		});
 
 

@@ -1,7 +1,9 @@
-<?php namespace Wwallace\Poll;
+<?php
 use LaravelBook\Ardent\Ardent;
 
 class Poll extends Ardent {
+
+	protected $table = 'polls';
 
 	public static $rules = array(
 		'question' => 'required|between:1,255',

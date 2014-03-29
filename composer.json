@@ -1,5 +1,5 @@
 {
-    "name": "wwallace/poll",
+    "name": "wwallace/easypoll",
     "description": "A Laravel Package for creating Polls",
     "authors": [
         {
@@ -23,7 +23,7 @@
             "src/models"
         ],
         "psr-0": {
-            "Wwallace\\Poll\\": "src/"
+            "Wwallace\\EasyPoll\\": "src/"
         }
     },
     "minimum-stability": "dev"
