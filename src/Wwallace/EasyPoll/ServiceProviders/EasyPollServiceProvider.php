@@ -20,11 +20,6 @@ class EasyPollServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('wwallace/easypoll');
-		$this->app->booting(function()
-		{
-			$loader = \Illuminate\Foundation\AliasLoader::getInstance();
-			$loader->alias('EasyPoll', 'Wwallace\EasyPoll\Facades\EasyPollFacade');
-		});
 	}
 
 	/**
@@ -38,7 +33,11 @@ class EasyPollServiceProvider extends ServiceProvider {
 		{
 			return new EasyPoll();
 		});
-
+		$this->app->booting(function()
+		{
+			$loader = \Illuminate\Foundation\AliasLoader::getInstance();
+			$loader->alias('EasyPoll', 'Wwallace\EasyPoll\Facades\EasyPollFacade');
+		});
 
 	}
 

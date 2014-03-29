@@ -1,14 +1,24 @@
 <?php namespace Wwallace\EasyPoll;
 
+use Config;
+
 /**
  * Class EasyPoll
  * @package Wwallace\EasyPoll
  */
 class EasyPoll {
 
+	public $app;
+
 	public function __construct()
 	{
 
+		$this->app = app();
+
+	}
+
+	public function getAllPolls() {
+		return \Poll::get();
 	}
 
 	/**
@@ -32,10 +42,15 @@ class EasyPoll {
 
 	/**
 	 * @param $optionId
-	 * @return \Vote
+	 * @param null $uniqueIdentifier
+	 * @return mixed
 	 */
-	public function voteForOption($optionId) {
-		$vote = new \Vote(['option_id' => $optionId]);
+	public function voteForOption($optionId, $uniqueIdentifier = null) {
+
+		$vote = new \Vote([
+			'option_id' => $optionId,
+			'unique_identifier' => $uniqueIdentifier
+		]);
 		$vote->save();
 
 		$votes = \Vote::where('option_id',$optionId)->count();
