@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateVotesTable extends Migration {
 
@@ -11,7 +12,12 @@ class CreateVotesTable extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema::create('votes', function(Blueprint $table) {
+			// Which option is this vote for
+			$table->integer('option_id')->unsigned();
+			$table->timestamps();
+			$table->foreign('option_id')->references('id')->on('options')->onDelete('cascade');
+		});
 	}
 
 	/**
@@ -21,7 +27,7 @@ class CreateVotesTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('votes');
 	}
 
 }

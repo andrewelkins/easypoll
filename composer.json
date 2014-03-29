@@ -9,11 +9,18 @@
     ],
     "require": {
         "php": ">=5.3.7",
-        "illuminate/support": "4.0.*"
+        "illuminate/support": "~4.1",
+        "laravelbook/ardent": "2.4.2"
+    },
+    "require-dev": {
+        "illuminate/database": "4.x",
+        "mockery/mockery": "0.7.2",
+        "zizaco/factory-muff": "dev-master"
     },
     "autoload": {
         "classmap": [
-            "src/migrations"
+            "src/migrations",
+            "src/models"
         ],
         "psr-0": {
             "Wwallace\\Poll\\": "src/"

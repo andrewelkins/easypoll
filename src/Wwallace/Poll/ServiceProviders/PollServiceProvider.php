@@ -1,6 +1,9 @@
-<?php namespace Wwallace\Poll;
+<?php namespace Wwallace\Poll\ServiceProviders;
 
 use Illuminate\Support\ServiceProvider;
+use Wwallace\Poll\Poll;
+use Wwallace\Poll\Option;
+use Wwallace\Poll\Vote;
 
 class PollServiceProvider extends ServiceProvider {
 
@@ -19,6 +22,11 @@ class PollServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('wwallace/poll');
+		$this->app->booting(function()
+		{
+			$loader = \Illuminate\Foundation\AliasLoader::getInstance();
+			$loader->alias('Poll', 'Wwallace\Poll\Facades\PollFacade');
+		});
 	}
 
 	/**
@@ -28,7 +36,12 @@ class PollServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+		$this->app['poll'] = $this->app->share(function($app)
+		{
+			return new Poll;
+		});
+
+
 	}
 
 	/**
