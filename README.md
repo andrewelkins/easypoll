@@ -1,6 +1,4 @@
-poll
+EasyPoll 
 ====
-
 A Package for doing Polls in Laravel 4
-
-### Install
+Super Simple, Very Dump Polling system
